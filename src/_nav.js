@@ -1,6 +1,11 @@
 export default {
   items: [
     {
+      name: '充值记录',
+      url: '/recharge/recharge',
+      icon: 'fa fa-rmb',
+    },
+    {
       name: 'Dashboard',
       url: '/dashboard',
       icon: 'icon-speedometer',

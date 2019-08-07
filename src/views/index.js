@@ -50,6 +50,7 @@ export {
   Tables,
   Charts,
   Dashboard,
+  Recharge,
   Widgets,
   Jumbotrons,
   Switches,
