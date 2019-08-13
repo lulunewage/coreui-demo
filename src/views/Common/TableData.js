@@ -3,8 +3,9 @@ import { Table } from 'reactstrap';
 
 export default class TableData extends Component {
     render() {
+      {/*Table hover bordered striped responsive size="sm" list={this.state.list}*/}
         return (
-            <Table hover bordered striped responsive size="sm">
+            <Table>
                 <thead>
                     <tr>
                         <th>订单号码</th>
