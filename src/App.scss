@@ -9,3 +9,10 @@
 @import '~simple-line-icons/css/simple-line-icons.css';
 // Import Main styles for this application
 @import './scss/style.scss';
+
+.app-header{
+    background: linear-gradient(-56deg, rgb(0, 20, 93), rgb(56, 20, 141), rgb(68, 31, 155),rgb(85, 31, 155),rgb(93, 40, 163));
+}
+.navbar-nav .nav-link{
+    color: white;
+}
