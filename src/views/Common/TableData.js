@@ -5,7 +5,7 @@ export default class TableData extends Component {
     render() {
       {/*Table hover bordered striped responsive size="sm" list={this.state.list}*/}
         return (
-            <Table>
+            <Table hover bordered striped responsive size="sm">
                 <thead>
                     <tr>
                         <th>订单号码</th>

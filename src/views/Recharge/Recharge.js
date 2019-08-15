@@ -20,14 +20,20 @@ export default class Recharge extends Component {
     this.handleFirstClick = this.handleFirstClick.bind(this); 
   }
 
-  callApi = () =>{ 
-    const currentPage = this.state.page; 
-    const todosPerPage = this.state.size; 
+  callApi = () => {
+    const {
+      currentPage,
+      todosPerPage,
+    } = this.state;
+    // const currentPage = this.state.currentPage;
+    // const todosPerPage = this.state.todosPerPage;
     const indexOfLastTodo = currentPage * todosPerPage; 
     const indexOfFirstTodo = indexOfLastTodo - todosPerPage; 
     // const currentTodos = list.slice(indexOfFirstTodo, indexOfLastTodo); 
-    prev = currentPage > 0 ? (currentPage -1) :0; 
-    // last = Math.ceil(list.length/todosPerPage); 
+    prev = currentPage > 0 ? (currentPage -1) :0;
+    
+    last = Math.ceil(100/todosPerPage); 
+    console.warn('last: ', last);
     next = (last === currentPage) ?currentPage: currentPage +1; 
 
     fetch(`https://randomuser.me/api/?page=${currentPage}}&results=${todosPerPage}`) 
@@ -83,6 +89,7 @@ export default class Recharge extends Component {
     for (let i = 1; i <=last; i++) { 
       pageNumbers.push(i); 
     } 
+    console.warn(pageNumbers);
     return ( 
       <div className="animated fadeIn"> 
       <Row> 
@@ -104,7 +111,7 @@ export default class Recharge extends Component {
         }) 
       } 
       </ul> */}
-      <ul id="page-numbers"> 
+      {/* <ul id="page-numbers">  */}
       <nav> 
       <Pagination> 
         <PaginationItem> 
@@ -161,7 +168,7 @@ export default class Recharge extends Component {
           </PaginationItem> 
         </Pagination> 
         </nav> 
-        </ul> 
+        {/* </ul>  */}
         </CardBody> 
         </Card> 
         </Col> 
