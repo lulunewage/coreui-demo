@@ -1,6 +1,6 @@
 import React, { Component } from 'react'; 
-import TableData from '../Common/TableData'; 
-import SearchDate from '../Common/SearchDate'; 
+import TableData from '../../components/TableData'; 
+import { SearchDate } from '../../components/SearchDate'; 
 import { Card, CardBody, CardHeader, Col, Pagination, PaginationItem, PaginationLink, Row } from 'reactstrap'; 
 
 let prev = 0; 
@@ -25,6 +25,8 @@ export default class Recharge extends Component {
       currentPage,
       todosPerPage,
     } = this.state;
+    // 上方24-27行ES6的寫法等同於下方29-30行
+    // 建立一個變數丟給currentPage
     // const currentPage = this.state.currentPage;
     // const todosPerPage = this.state.todosPerPage;
     const indexOfLastTodo = currentPage * todosPerPage; 

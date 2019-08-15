@@ -31,11 +31,11 @@ const Alerts = React.lazy(() => import('./views/Notifications/Alerts'));
 const Badges = React.lazy(() => import('./views/Notifications/Badges'));
 const Modals = React.lazy(() => import('./views/Notifications/Modals'));
 const Colors = React.lazy(() => import('./views/Theme/Colors'));
-const Recharge = React.lazy(() => import('./views/Recharge/Recharge'));
 const Typography = React.lazy(() => import('./views/Theme/Typography'));
 const Widgets = React.lazy(() => import('./views/Widgets/Widgets'));
 const Users = React.lazy(() => import('./views/Users/Users'));
 const User = React.lazy(() => import('./views/Users/User'));
+const Recharge = React.lazy(() => import('./views/RechargePage'));
 
 const IntroPage = React.lazy(() => import('./views/IntroPage'));
 
