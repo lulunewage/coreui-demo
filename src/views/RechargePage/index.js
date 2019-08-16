@@ -4,30 +4,24 @@ import { SearchDate } from '../../components/SearchDate';
 import PageFooter from '../../components/PageFooter'; 
 import { Card, CardBody, CardHeader, Col, Row } from 'reactstrap'; 
 
-
+const todosPerPage = 10;
 export default class Recharge extends Component { 
   constructor(){ 
     super(); 
     this.state={ 
       list:[],
-      currentPage: 1, 
-      todosPerPage: 10, 
+      currentPage: 1,
     } 
   }
 
   callApi = () => {
     const {
       currentPage,
-      todosPerPage,
     } = this.state;
     // 上方24-27行ES6的寫法等同於下方29-30行
     // 建立一個變數丟給currentPage
     // const currentPage = this.state.currentPage;
     // const todosPerPage = this.state.todosPerPage;
-    const indexOfLastTodo = currentPage * todosPerPage; 
-    const indexOfFirstTodo = indexOfLastTodo - todosPerPage; 
-    // const currentTodos = list.slice(indexOfFirstTodo, indexOfLastTodo); 
-    // prev = currentPage > 0 ? (currentPage -1) :0;
   
 
     fetch(`https://randomuser.me/api/?page=${currentPage}}&results=${todosPerPage}`) 
