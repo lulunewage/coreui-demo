@@ -8,10 +8,6 @@ let first = 0;
 export default class PageFooter extends Component {
   constructor(props){
     super(props);
-    this.setState({
-      currentPage: 1,
-      todosPerPage: 3,
-    })
     this.handleClick = this.handleClick.bind(this); 
     this.handleLastClick = this.handleLastClick.bind(this); 
     this.handleFirstClick = this.handleFirstClick.bind(this); 
@@ -24,17 +20,11 @@ export default class PageFooter extends Component {
   
   handleLastClick(event) {
     event.preventDefault();
-    this.setState({
-      currentPage:last
-    });
     this.props.onChangePage(last)
     this.props.callApi();
   }
   handleFirstClick(event) {
     event.preventDefault();
-    this.setState({
-      currentPage:1
-    });
     this.props.onChangePage(1)
     this.props.callApi();
   }
