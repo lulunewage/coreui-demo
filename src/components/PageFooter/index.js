@@ -13,24 +13,22 @@ export default class PageFooter extends Component {
     this.handleFirstClick = this.handleFirstClick.bind(this); 
   }
   handleClick(event) { 
+    //console.log(event)可看到target
     event.preventDefault(); 
-    this.props.onChangePage(event.target.id)
-    this.props.callApi();
+    this.props.callApi(event.target.id);
   } 
   
   handleLastClick(event) {
     event.preventDefault();
-    this.props.onChangePage(last)
-    this.props.callApi();
+    this.props.callApi(last);
   }
   handleFirstClick(event) {
     event.preventDefault();
-    this.props.onChangePage(1)
-    this.props.callApi();
+    this.props.callApi(1);
   }
 
   render() {
-    last = Math.ceil(150/10);
+    last = Math.ceil(150/this.props.todosPerPage);
     let { currentPage } = this.props; 
     next = (last === currentPage) ?currentPage: currentPage +1; 
     prev = currentPage > 0 ? (currentPage -1) :0; 
@@ -39,6 +37,7 @@ export default class PageFooter extends Component {
     for (let i = 1; i <=last; i++) { 
       pageNumbers.push(i); 
     } 
+    //監聽事件必須用駝峰式命名
     return (
       <nav> 
       <Pagination> 

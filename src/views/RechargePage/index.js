@@ -3,10 +3,12 @@ import TableData from '../../components/TableData';
 import { SearchDate } from '../../components/SearchDate'; 
 import PageFooter from '../../components/PageFooter'; 
 import { Card, CardBody, CardHeader, Col, Row } from 'reactstrap'; 
-
+//定義每頁的總筆數
 const todosPerPage = 10;
 export default class Recharge extends Component { 
-  constructor(){ 
+  //建構式
+  constructor(){
+    //呼叫父層，並定義兩個state變數的初始值 
     super(); 
     this.state={ 
       list:[],
@@ -14,36 +16,20 @@ export default class Recharge extends Component {
     } 
   }
 
-  callApi = () => {
-    const {
-      currentPage,
-    } = this.state;
-    // 上方24-27行ES6的寫法等同於下方29-30行
-    // 建立一個變數丟給currentPage
-    // const currentPage = this.state.currentPage;
-    // const todosPerPage = this.state.todosPerPage;
-  
-
-    fetch(`https://randomuser.me/api/?page=${currentPage}}&results=${todosPerPage}`) 
-    .then(res =>{ 
-      return res.json() 
-    }) 
+//接子層傳上來的變數
+  callApi = (page) => {
+    //setState 的功能就是修改 state 變數
+    this.setState({ currentPage: page })
+    fetch(`https://randomuser.me/api/?page=${page}}&results=${todosPerPage}`) 
+    .then(res => res.json())
     .then(json =>{ 
-      this.handleSetList(json.results); 
+      //json.results是拿回來的資料,再塞給state.list
+      this.setState({
+        list: json.results
+      }); 
     }) 
   } 
-
-  handleSetList = newList =>{ 
-    this.setState({ 
-      list: newList 
-    }) 
-  } 
-  handleChangePage = currentPage =>{
-    this.setState({
-      currentPage:currentPage
-    })
-  }
-  
+//render函式，會return回標籤
   render() { 
     return ( 
       <div className="animated fadeIn"> 
@@ -54,6 +40,7 @@ export default class Recharge extends Component {
       <i className="fa fa-align-justify"></i> 充值记录 
       </CardHeader> 
       <CardBody> 
+        
       <SearchDate 
       callApi={this.callApi} 
       onSetList={this.handleSetList} /> 
@@ -62,9 +49,8 @@ export default class Recharge extends Component {
       
       <PageFooter
       callApi={this.callApi}
+      todosPerPage={todosPerPage}
       currentPage={this.state.currentPage}
-      todosPerPage={this.state.todosPerPage}
-      onChangePage={this.handleChangePage}
       />
       
         </CardBody> 
