@@ -9,6 +9,7 @@ class SearchDate extends React.Component {
     // this.state可以設置元件本身各別的變數 
     // state是元件自身的變數，props是上面傳下來的變數， 
     // 只要state和props的數值有改變,render都會重新跑一次 
+    // 監聽事件必須用駝峰式命名
     constructor(props){ 
         super(props); 
         this.state = { 
@@ -28,7 +29,11 @@ class SearchDate extends React.Component {
         this.props.callApi(); 
     } 
     
-    // return回一個標籤，React中的js會用{}包起來，class會變成className，單標籤可以用/>直接結尾 
+    // return回一個標籤
+    // jsx中的js會用{}包起來
+    // class會變成className,input或label的for會變成htmlFor={}
+    //select設定唯一值可以用selectedValue={}
+    // 單標籤可以用/>直接結尾 
     render() { 
         
         return ( 

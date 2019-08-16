@@ -26,7 +26,7 @@ export default class PageFooter extends Component {
     event.preventDefault();
     this.props.callApi(1);
   }
-
+//this.props.todosPerPage是接受父層的總筆數
   render() {
     last = Math.ceil(150/this.props.todosPerPage);
     let { currentPage } = this.props; 
